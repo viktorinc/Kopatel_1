@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 
 namespace Kopatel.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/user")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -21,7 +21,7 @@ namespace Kopatel.Controllers
             _context = context;
         }
 
-        [HttpGet]
+        [HttpGet("users")]
         public IEnumerable<User> Get()
         {
             return _context.Users.ToList();

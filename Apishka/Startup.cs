@@ -31,6 +31,7 @@ namespace Apishka
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<EFContext>(options => options.UseSqlServer(Configuration.GetConnectionString("dbcon")));
+            services.AddSignalR();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

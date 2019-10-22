@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace Kopatel.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/kladman")]
     [ApiController]
     public class KladmanController : ControllerBase
     {
@@ -20,7 +20,7 @@ namespace Kopatel.Controllers
             _context = context;
         }
 
-        [HttpGet]
+        [HttpGet("kladmans")]
         public IEnumerable<User> Get()
         {
             return _context.Users.ToList();

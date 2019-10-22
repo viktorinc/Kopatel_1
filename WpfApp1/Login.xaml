@@ -1,0 +1,25 @@
+﻿<Window x:Class="WpfApp1.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Login" Background="Black" Height="450" Width="800" MaxHeight="450" MaxWidth="800" MinHeight="450" MinWidth="800">
+    <Grid>
+        <TextBox Name="login" FontSize="25" Margin="547,10,10,366"  Background="White" Foreground="Black"/>
+        <PasswordBox FontSize="25" Name="Password" Margin="547,80,10,296"  Background="White" Foreground="Black"/>
+        <Label FontWeight="Bold" Content="Login" FontSize="25" Foreground="White" Margin="404,10,288,362"/>
+        <Label FontWeight="Bold" Content="Password" FontSize="25" Foreground="White" Margin="401,80,240,292"/>
+        <Label FontWeight="Bold" Content="Are you sure?" FontSize="25" Foreground="White" Margin="313,233,300,139"/>
+        <Button Content="Yes" FontWeight="Bold" FontSize="30" Margin="191,310,422,57" Click="Button_Click"/>
+        <Button Content="No" FontWeight="Bold" FontSize="30" Margin="423,310,190,57" Click="Button_Click_1"/>
+        <Image Source="Pics/123.png" Margin="0,52,369,187"/>
+        <Label FontWeight="Bold" Content="KOPATEL" FontSize="25" Foreground="White" Margin="148,32,465,340"/>
+        <CheckBox Content="I`m new" Foreground="White" Name="newbox" FontSize="12" Margin="546,136,53,236">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+    </Grid>
+</Window>

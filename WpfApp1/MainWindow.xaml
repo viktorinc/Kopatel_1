@@ -2,11 +2,15 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Background="Black" Height="450" Width="800">
     <Grid>
+        <Image Source="Pics/123.png" Margin="265,10,321,302"/>
+        <Label Content="Kopatel" FontWeight="Bold" FontSize="25" Foreground="White" Margin="318,-8,321,372"/>
+        <Button Margin="730,10,10,368"><Image Source="Pics/321.png"/></Button>
         
     </Grid>
 </Window>
