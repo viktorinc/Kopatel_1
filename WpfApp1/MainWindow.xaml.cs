@@ -24,9 +24,20 @@ namespace WpfApp1
     {
         public UserViewModel user { get; set; }
         public UserModel usser { get; set; }
+        public List<ProductViewModel> list = new List<ProductViewModel>();
+        
         public MainWindow()
         {
+
+            
+
             InitializeComponent();
+
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -72,24 +72,27 @@ namespace WpfApp1
                         HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:49576/api/user/users/");
                         request.Method = "GET";
                         request.ContentType = "application/json";
-                        using (StreamReader reader = new StreamReader(request.GetRequestStream()))
+                        using (WebResponse response = request.GetResponse())
                         {
-                            string json = reader.ReadToEnd();
-                            List<UserModel> users = JsonConvert.DeserializeObject<List<UserModel>>(json);
-                            foreach(var el in users)
+                            using (StreamReader reader = new StreamReader(request.GetRequestStream()))
                             {
-                                if(el.Login==login.Text)
+                                string json = reader.ReadToEnd();
+                                List<UserModel> users = JsonConvert.DeserializeObject<List<UserModel>>(json);
+                                foreach (var el in users)
                                 {
-                                    if(el.Password==Password.Password)
+                                    if (el.Login == login.Text)
                                     {
-                                        MainWindow mw = new MainWindow();
-                                        mw.usser = el;
-                                        mw.Show();
-                                        this.Close();
+                                        if (el.Password == Password.Password)
+                                        {
+                                            MainWindow mw = new MainWindow();
+                                            mw.usser = el;
+                                            mw.Show();
+                                            this.Close();
+                                        }
                                     }
                                 }
+
                             }
-                            
                         }
                     }
                 }
