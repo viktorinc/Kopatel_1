@@ -1,4 +1,4 @@
-﻿namespace WpfApp1.Models
+﻿namespace Kopatel.Controllers
 {
     public class ProductViewModel
     {

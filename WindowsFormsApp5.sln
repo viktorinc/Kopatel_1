@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.539
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Apishka", "Apishka\Apishka.csproj", "{9329A325-CE2D-4431-9E79-17B51C538A9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{6D17EBC3-A4FA-42F0-96CA-1BADA067EA17}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI`s", "WpfApp1\UI`s.csproj", "{6D17EBC3-A4FA-42F0-96CA-1BADA067EA17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -8,6 +8,7 @@ using Kopatel.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using WpfApp1.Models;
 
 namespace Kopatel.Controllers
 {
@@ -59,6 +60,20 @@ namespace Kopatel.Controllers
             catch (Exception ex)
             {
                 return Content("Error:" + ex.Message);
+            }
+        }
+
+        [HttpPost("loginUser")]
+        public IActionResult CheckLogin([FromBody]UserViewModel model)
+        {
+            var boss = _context.Users.FirstOrDefault(t => t.Login == model.Login && t.Password == model.Password );
+            if (boss != null)
+            {
+                return Ok(boss.Id.ToString());
+            }
+            else
+            {
+                return BadRequest();
             }
         }
 

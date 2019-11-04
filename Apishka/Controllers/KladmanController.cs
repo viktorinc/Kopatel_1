@@ -26,6 +26,20 @@ namespace Kopatel.Controllers
             return _context.Users.ToList();
         }
 
+        [HttpPost("loginKladman")]
+        public IActionResult CheckLogin([FromBody]KladmanViewModel model)
+        {
+            var boss = _context.Kladmans.FirstOrDefault(t => t.Login == model.Login && t.Password == model.Password);
+            if (boss != null)
+            {
+                return Ok(boss.Id.ToString());
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
         // GET api/client/5
         [HttpGet("{id}")]
         public ContentResult GetKladman(int id)

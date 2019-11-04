@@ -1,5 +1,4 @@
-﻿using Kopatel.Controllers;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -68,37 +67,30 @@ namespace WpfApp1
 
                     }
                     else
-                    {
-                        HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:49576/api/user/users/");
-                        request.Method = "GET";
-                        request.ContentType = "application/json";
-                        using (WebResponse response = request.GetResponse())
-                        {
-                            using (StreamReader reader = new StreamReader(request.GetRequestStream()))
-                            {
-                                string json = reader.ReadToEnd();
-                                List<UserModel> users = JsonConvert.DeserializeObject<List<UserModel>>(json);
-                                foreach (var el in users)
-                                {
-                                    if (el.Login == login.Text)
-                                    {
-                                        if (el.Password == Password.Password)
-                                        {
-                                            MainWindow mw = new MainWindow();
-                                            mw.usser = el;
-                                            mw.Show();
-                                            this.Close();
-                                        }
-                                    }
-                                }
 
-                            }
+                    {
+                        UserModel user = new UserModel();
+                        HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:49576/api/user/loginUser/");
+                        request.Method = "Post";
+                        request.ContentType = "application/json";
+                        using (StreamWriter writer = new StreamWriter(request.GetRequestStream()))
+                        {
+                          user = new UserModel() { Login = login.Text, Password = Password.Password };
+                            string json = JsonConvert.SerializeObject(user);
+                            writer.Write(json);
                         }
+                        WebResponse respons = request.GetResponse();
+                        MainWindow mw = new MainWindow();
+                        mw.usser = user;
+                        mw.Show();
+                        this.Close();                                
+                        
+                        
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Ty durachok"+ex.Message);
                 }
 
 
@@ -107,7 +99,65 @@ namespace WpfApp1
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                if (newbox.IsChecked == true)
+                {
+                    KladmanViewModel user;
+                    HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:49576/api/kladman/add/");
+                    request.Method = "POST";
+                    request.ContentType = "application/json";
+                    using (StreamWriter stream = new StreamWriter(request.GetRequestStream()))
+                    {
+                        user = new KladmanViewModel()
+                        {
+                            Login = login.Text,
+                            Password = Password.Password
+                        };
+                        string json = JsonConvert.SerializeObject(user);
+                        stream.Write(json);
 
+
+                    }
+                    WebResponse response = request.GetResponse();
+                    KladmanUI kui = new KladmanUI();
+                    kui.usser = user;
+                    kui.Show();
+                    this.Close();
+
+                }
+                else
+                {
+                    try
+                    {
+                        HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:49576/api/user/loginKladman/");
+                        request.Method = "POST";
+                        KladmanViewModel user = new KladmanViewModel();
+                        request.ContentType = "application/json";
+                        using (StreamWriter writer = new StreamWriter(request.GetRequestStream()))
+                        {
+                           user = new KladmanViewModel() { Login = login.Text, Password = Password.Password };
+                            string json = JsonConvert.SerializeObject(user);
+                            writer.Write(json);
+                        }
+                        WebResponse response = request.GetResponse();
+                            KladmanUI kui = new KladmanUI();
+                            kui.usser = user;
+                            kui.Show();
+                            this.Close();
+                        
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Ty debil");
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

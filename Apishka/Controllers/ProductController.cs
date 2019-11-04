@@ -21,9 +21,15 @@ namespace Kopatel.Controllers
         }
 
         [HttpGet("products")]
-        public IEnumerable<Product> Get()
+        public IEnumerable<ProductViewModel> Get()
         {
-            return _context.Products.ToList();
+            return _context.Products.
+                Select(t=>
+                new ProductViewModel()
+                {
+                    Name = t.Name,
+                    Price=t.Price
+                }).ToList();
         }
 
         // GET api/client/5

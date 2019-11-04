@@ -1,4 +1,4 @@
-﻿namespace Kopatel.Controllers
+﻿namespace WpfApp1.Models
 {
     public class UserViewModel
     {
