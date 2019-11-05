@@ -11,7 +11,7 @@
         <Image Source="Pics/123.png" Margin="265,10,321,302"/>
         <Label Content="Kopatel" FontWeight="Bold" FontSize="25" Foreground="White" Margin="318,-8,321,372"/>
         <Button Margin="730,10,10,368"><Image Source="Pics/321.png"/></Button>
-        <ListView MouseDoubleClick="ListProducts_MouseDoubleClick"  ItemsSource="{Binding Name}" Name="ListProducts"  Margin="10,10,532,148" >
+        <ListView Background="Black" Foreground="White" FontSize="20" FontWeight="Bold" MouseDoubleClick="ListProducts_MouseDoubleClick"  ItemsSource="{Binding Name}" Name="ListProducts"  Margin="10,10,532,148" >
         </ListView>
         <Button FontWeight="Bold" Background="Black" Foreground="White" FontSize="20" Content="Make Order" Margin="10,356,532,10"/>
     </Grid>

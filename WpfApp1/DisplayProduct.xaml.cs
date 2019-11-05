@@ -21,11 +21,23 @@ namespace WpfApp1
     public partial class DisplayProduct : Window
     {
         public ProductViewModel product { get; set; }
-        public string picturepath;
-        public DisplayProduct()
+        public DisplayProduct(ProductViewModel model)
         {
-            //picturepath = product.Picture;
+          
             InitializeComponent();
+            BitmapImage myBitmapImage = new BitmapImage();
+            myBitmapImage.BeginInit();
+            myBitmapImage.UriSource = new Uri($@"C:\Users\kubrak\Source\Repos\Kopatel_1\WpfApp1\Pics\{model.Picture}");
+            myBitmapImage.EndInit();
+
+            Desc.Text = model.ForDisplay();
+            productpic.Source = myBitmapImage;
+            string picturepath = model.Picture;
+            
+        }
+        private void startup()
+        {
+            
         }
     }
 }

@@ -14,5 +14,10 @@
         {
             return $"{Name}  Price: {Price}";
         }
+
+        public string ForDisplay()
+        {
+            return $"Name: {Name}\nPrice: {Price}\nDescription: {Description}";
+        }
     }
 }

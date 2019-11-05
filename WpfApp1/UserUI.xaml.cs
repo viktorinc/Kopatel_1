@@ -58,17 +58,14 @@ namespace WpfApp1
 
         private void ListProducts_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            try
-            {
+
                     var senderList = (ListView)sender;
-                    DisplayProduct dp = new DisplayProduct();
-                    ProductViewModel product = list[senderList.SelectedIndex];
-                    dp.product = product;
+                ProductViewModel product = list[senderList.SelectedIndex];
+
+                DisplayProduct dp = new DisplayProduct(product);
                     dp.Show();
                 
-            }
-            catch
-            { }
+      
         }
 
         private void ListProducts_MouseDoubleClick_1(object sender, MouseButtonEventArgs e)
