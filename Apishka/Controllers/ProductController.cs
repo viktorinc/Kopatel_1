@@ -28,7 +28,9 @@ namespace Kopatel.Controllers
                 new ProductViewModel()
                 {
                     Name = t.Name,
-                    Price=t.Price
+                    Price=t.Price,
+                    Description=t.Description,
+                    Picture=t.Description
                 }).ToList();
         }
 
@@ -53,7 +55,9 @@ namespace Kopatel.Controllers
                 Product client = new Product()
                 {
                    Name=model.Name,
-                   Price=model.Price
+                   Price=model.Price,
+                   Description=model.Description,
+                   Picture=model.Picture
                 };
 
                 _context.Products.Add(client);
@@ -76,6 +80,8 @@ namespace Kopatel.Controllers
             {
                 Kladman.Price = model.Price;
                 Kladman.Name = model.Name;
+                Kladman.Picture = model.Picture;
+                Kladman.Description = model.Description;
 
 
                 _context.SaveChanges();

@@ -28,6 +28,7 @@ namespace WpfApp1
         public UserViewModel user { get; set; }
         public UserModel usser { get; set; }
         public List<ProductViewModel> list = new List<ProductViewModel>();
+        public OrderViewModel order = new OrderViewModel();
         
         public MainWindow()
         {
