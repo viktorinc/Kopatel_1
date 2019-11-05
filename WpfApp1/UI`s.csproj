@@ -39,6 +39,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="DisplayProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="KladmanUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -54,6 +58,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DisplayProduct.xaml.cs">
+      <DependentUpon>DisplayProduct.xaml</DependentUpon>
     </Compile>
     <Compile Include="KladmanUI.xaml.cs">
       <DependentUpon>KladmanUI.xaml</DependentUpon>
@@ -127,6 +134,27 @@
     <Reference Include="WpfAnimatedGif, Version=1.4.18.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\WpfAnimatedGif.1.4.18\lib\net\WpfAnimatedGif.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pics\1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pics\11.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pics\2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pics\3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pics\4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pics\5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pics\DisplayBack.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

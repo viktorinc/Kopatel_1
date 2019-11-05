@@ -30,7 +30,7 @@ namespace Kopatel.Controllers
                     Name = t.Name,
                     Price=t.Price,
                     Description=t.Description,
-                    Picture=t.Description
+                    Picture=t.Picture
                 }).ToList();
         }
 

@@ -27,6 +27,7 @@ namespace WpfApp1
     {
         public UserViewModel user { get; set; }
         public UserModel usser { get; set; }
+        public List<KladmanViewModel> kladmans = new List<KladmanViewModel>() { };
         public List<ProductViewModel> list = new List<ProductViewModel>();
         public OrderViewModel order = new OrderViewModel();
         
@@ -42,16 +43,35 @@ namespace WpfApp1
             HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:49576/api/product/products/");
             request.Method = "GET";
             request.ContentType = "application/json";
-            using (StreamReader reader = new StreamReader(request.GetRequestStream()))
+
+            WebResponse response = request.GetResponse();
+            using (StreamReader reader = new StreamReader(response.GetResponseStream()))
             {
                 string json = reader.ReadToEnd();
-                List<ProductViewModel> users = JsonConvert.DeserializeObject<List<ProductViewModel>>(json);
-                list = users;
-                WebResponse response = request.GetResponse();
+                var products = JsonConvert.DeserializeObject<List<ProductViewModel>>(json);
+                list = products;
+                
             }
         }
 
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+
+        private void ListProducts_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                    var senderList = (ListView)sender;
+                    DisplayProduct dp = new DisplayProduct();
+                    ProductViewModel product = list[senderList.SelectedIndex];
+                    dp.product = product;
+                    dp.Show();
+                
+            }
+            catch
+            { }
+        }
+
+        private void ListProducts_MouseDoubleClick_1(object sender, MouseButtonEventArgs e)
         {
 
         }
