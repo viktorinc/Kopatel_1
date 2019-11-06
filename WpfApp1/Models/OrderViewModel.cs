@@ -14,5 +14,14 @@ namespace WpfApp1.Models
         public int UserId { get; set; }
 
         public int ProductId { get; set; }
+
+        public override string ToString()
+        {
+            if(Location==null)
+            {
+                Location = "Waiting for Kladman";
+            }
+            return $"Product id: {ProductId} Location: {Location}";
+        }
     }
 }

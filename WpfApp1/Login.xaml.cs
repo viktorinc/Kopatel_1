@@ -69,19 +69,19 @@ namespace WpfApp1
                     else
 
                     {
-                        UserModel user = new UserModel();
+                        UserViewModel user = new UserViewModel();
                         HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:49576/api/user/loginUser/");
                         request.Method = "Post";
                         request.ContentType = "application/json";
                         using (StreamWriter writer = new StreamWriter(request.GetRequestStream()))
                         {
-                          user = new UserModel() { Login = login.Text, Password = Password.Password };
+                          user = new UserViewModel() { Login = login.Text, Password = Password.Password };
                             string json = JsonConvert.SerializeObject(user);
                             writer.Write(json);
                         }
                         WebResponse respons = request.GetResponse();
                         MainWindow mw = new MainWindow();
-                        mw.usser = user;
+                        mw.user = user;
                         mw.Show();
                         this.Close();                                
                         

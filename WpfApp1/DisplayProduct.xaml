@@ -13,6 +13,6 @@
     <Grid>
         <Image Name="productpic"  Margin="210,10,10,166"/>
         <TextBlock FontWeight="Bold"  TextWrapping="Wrap" Foreground="White" Name="Desc" FontSize="20" Background="Black" Margin="5,0,182,145"/>
-        <Button Content="BUY" Background="Black" Foreground="White" FontSize="25" FontWeight="Bold" Margin="91,236,114,10"/>
+        <Button Content="BUY" Background="Black" Foreground="White" FontSize="25" FontWeight="Bold" Margin="91,236,114,10" Click="Button_Click"/>
     </Grid>
 </Window>

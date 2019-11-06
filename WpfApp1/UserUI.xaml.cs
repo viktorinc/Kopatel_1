@@ -61,8 +61,8 @@ namespace WpfApp1
 
                     var senderList = (ListView)sender;
                 ProductViewModel product = list[senderList.SelectedIndex];
-
-                DisplayProduct dp = new DisplayProduct(product);
+            
+                DisplayProduct dp = new DisplayProduct(product,user);
                     dp.Show();
                 
       
@@ -71,6 +71,12 @@ namespace WpfApp1
         private void ListProducts_MouseDoubleClick_1(object sender, MouseButtonEventArgs e)
         {
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            OrderUi oui = new OrderUi(user);
+            oui.Show();
         }
     }
 }

@@ -30,7 +30,8 @@ namespace Kopatel.Controllers
                     Name = t.Name,
                     Price=t.Price,
                     Description=t.Description,
-                    Picture=t.Picture
+                    Picture=t.Picture,
+                    Id = t.Id
                 }).ToList();
         }
 
@@ -57,7 +58,8 @@ namespace Kopatel.Controllers
                    Name=model.Name,
                    Price=model.Price,
                    Description=model.Description,
-                   Picture=model.Picture
+                   Picture=model.Picture,
+                   Id = model.Id
                 };
 
                 _context.Products.Add(client);
@@ -82,6 +84,7 @@ namespace Kopatel.Controllers
                 Kladman.Name = model.Name;
                 Kladman.Picture = model.Picture;
                 Kladman.Description = model.Description;
+                Kladman.Id = model.Id;
 
 
                 _context.SaveChanges();

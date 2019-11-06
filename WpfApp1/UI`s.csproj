@@ -51,6 +51,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="OrderUi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserUI.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +71,9 @@
     </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrderUi.xaml.cs">
+      <DependentUpon>OrderUi.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserUI.xaml.cs">
       <DependentUpon>UserUI.xaml</DependentUpon>

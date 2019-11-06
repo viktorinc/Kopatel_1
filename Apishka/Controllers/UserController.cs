@@ -49,7 +49,8 @@ namespace Kopatel.Controllers
                 User client = new User()
                 {
                     Login = model.Login,
-                    Password=model.Password
+                    Password=model.Password,
+                    Id = model.Id
                 };
 
                 _context.Users.Add(client);
@@ -86,6 +87,7 @@ namespace Kopatel.Controllers
             {
                 user.Login = model.Login;
                 user.Password = model.Password;
+                user.Id = model.Id;
                 _context.SaveChanges();
                 return Content("User edited!");
             }

@@ -22,9 +22,18 @@ namespace Kopatel.Controllers
         }
 
         [HttpGet("orders")]
-        public IEnumerable<Order> Get()
+        public IEnumerable<OrderViewModel> Get()
         {
-            return _context.Orders.ToList();
+            return _context.Orders.Select(t =>
+            new OrderViewModel()
+            {
+                UserId = t.UserId,
+                KladmenId = t.KladmenId,
+                ProductId = t.ProductId,
+                Location = t.Location
+            }
+            
+            );
         }
 
         // GET api/client/5

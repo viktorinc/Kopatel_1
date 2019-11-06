@@ -29,7 +29,7 @@ namespace Kopatel.Controllers
         [HttpPost("loginKladman")]
         public IActionResult CheckLogin([FromBody]KladmanViewModel model)
         {
-            var boss = _context.Kladmans.FirstOrDefault(t => t.Login == model.Login && t.Password == model.Password);
+            var boss = _context.Kladmans.FirstOrDefault(t => t.Login == model.Login  && t.Password == model.Password);
             if (boss != null)
             {
                 return Ok(boss.Id.ToString());
@@ -63,7 +63,8 @@ namespace Kopatel.Controllers
                     IsAlive = model.IsAlive,
                     Password = model.Password,
                     Login = model.Login,
-                    Rating = model.Rating
+                    Rating = model.Rating,
+                    Id=model.Id
                 };
 
                 _context.Kladmans.Add(client);
@@ -88,6 +89,7 @@ namespace Kopatel.Controllers
                 Kladman.Login = model.Login;
                 Kladman.Password = model.Password;
                 Kladman.IsAlive = model.IsAlive;
+                Kladman.Id = model.Id;
                 
 
                 _context.SaveChanges();
