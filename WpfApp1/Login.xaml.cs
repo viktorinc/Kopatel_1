@@ -77,6 +77,7 @@ namespace WpfApp1
                         {
                           user = new UserViewModel() { Login = login.Text, Password = Password.Password };
                             string json = JsonConvert.SerializeObject(user);
+                            
                             writer.Write(json);
                         }
                         WebResponse respons = request.GetResponse();
