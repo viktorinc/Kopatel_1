@@ -58,7 +58,8 @@ namespace Kopatel.Controllers
                 {
                    UserId=model.UserId,
                    Location=model.Location,
-                   ProductId=model.ProductId,KladmenId=model.KladmenId
+                   ProductId=model.ProductId,
+                   KladmenId =model.KladmenId
                 };
 
                 _context.Orders.Add(client);

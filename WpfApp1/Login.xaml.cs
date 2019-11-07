@@ -23,6 +23,8 @@ namespace WpfApp1
     /// </summary>
     public partial class Login : Window
     {
+        public UserViewModel user = new UserViewModel() { };
+        public KladmanViewModel kladman = new KladmanViewModel() { };
         public Login()
         {
             InitializeComponent();
@@ -43,7 +45,6 @@ namespace WpfApp1
                 {
                     if (newbox.IsChecked == true)
                     {
-                        UserViewModel user;
                         HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:49576/api/user/add/");
                         request.Method = "POST";
                         request.ContentType = "application/json";
@@ -61,6 +62,7 @@ namespace WpfApp1
                         }
                         WebResponse response = request.GetResponse();
                         MainWindow mw = new MainWindow();
+                        UserIdFix();
                         mw.user = user;
                         mw.Show();
                         this.Close();
@@ -69,7 +71,6 @@ namespace WpfApp1
                     else
 
                     {
-                        UserViewModel user = new UserViewModel();
                         HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:49576/api/user/loginUser/");
                         request.Method = "Post";
                         request.ContentType = "application/json";
@@ -82,6 +83,7 @@ namespace WpfApp1
                         }
                         WebResponse respons = request.GetResponse();
                         MainWindow mw = new MainWindow();
+                        UserIdFix();
                         mw.user = user;
                         mw.Show();
                         this.Close();                                
@@ -104,13 +106,12 @@ namespace WpfApp1
             {
                 if (newbox.IsChecked == true)
                 {
-                    KladmanViewModel user;
                     HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:49576/api/kladman/add/");
                     request.Method = "POST";
                     request.ContentType = "application/json";
                     using (StreamWriter stream = new StreamWriter(request.GetRequestStream()))
                     {
-                        user = new KladmanViewModel()
+                        kladman = new KladmanViewModel()
                         {
                             Login = login.Text,
                             Password = Password.Password
@@ -121,8 +122,9 @@ namespace WpfApp1
 
                     }
                     WebResponse response = request.GetResponse();
-                    KladmanUI kui = new KladmanUI();
-                    kui.usser = user;
+                    KladmanIdFix();
+                    KladmanUI kui = new KladmanUI(kladman);
+                    kui.usser = kladman;
                     kui.Show();
                     this.Close();
 
@@ -131,21 +133,25 @@ namespace WpfApp1
                 {
                     try
                     {
-                        HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:49576/api/user/loginKladman/");
+                        HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:49576/api/kladman/loginKladman/");
                         request.Method = "POST";
-                        KladmanViewModel user = new KladmanViewModel();
                         request.ContentType = "application/json";
                         using (StreamWriter writer = new StreamWriter(request.GetRequestStream()))
                         {
-                           user = new KladmanViewModel() { Login = login.Text, Password = Password.Password };
+                            kladman = new KladmanViewModel()
+                            {
+                                Login = login.Text,
+                                Password = Password.Password
+                            };
                             string json = JsonConvert.SerializeObject(user);
                             writer.Write(json);
                         }
-                        WebResponse response = request.GetResponse();
-                            KladmanUI kui = new KladmanUI();
-                            kui.usser = user;
-                            kui.Show();
-                            this.Close();
+                        WebResponse response = request.GetResponse();                       
+                        KladmanIdFix();
+                        KladmanUI kui = new KladmanUI(kladman);
+                        kui.usser = kladman;
+                        kui.Show();
+                        this.Close();
                         
                     }
                     catch
@@ -158,6 +164,54 @@ namespace WpfApp1
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void KladmanIdFix()
+        {
+            List<KladmanViewModel> tmps = new List<KladmanViewModel>() { };
+            HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:49576/api/kladman/kladmans/");
+            request.Method = "GET";
+            request.ContentType = "application/json";
+            WebResponse response = request.GetResponse();
+
+            using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+            {
+                string json = reader.ReadToEnd();
+                var kladmans = JsonConvert.DeserializeObject<List<KladmanViewModel>>(json);
+                tmps = kladmans;
+
+            }
+            foreach (var el in tmps)
+            {
+                if (el.Login == kladman.Login && el.Password == kladman.Password)
+                {
+                    kladman.Id = el.Id;
+                }
+            }
+        }
+
+        public void UserIdFix()
+        {
+            List<UserViewModel> tmps = new List<UserViewModel>() { };
+            HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:49576/api/user/users/");
+            request.Method = "GET";
+            request.ContentType = "application/json";
+            WebResponse response = request.GetResponse();
+
+            using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+            {
+                string json = reader.ReadToEnd();
+                var users = JsonConvert.DeserializeObject<List<UserViewModel>>(json);
+                tmps = users;
+
+            }
+            foreach (var el in tmps)
+            {
+                if (el.Login == user.Login && el.Password == user.Password)
+                {
+                    user.Id = el.Id;
+                }
             }
         }
     }

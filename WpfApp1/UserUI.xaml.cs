@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.Maps.MapControl.WPF;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -78,5 +79,24 @@ namespace WpfApp1
             OrderUi oui = new OrderUi(user);
             oui.Show();
         }
+
+        private void Map_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;
+
+            Point mousePosition = e.GetPosition(this);
+            Location pinLocation = Map.ViewportPointToLocation(mousePosition);
+
+            Pushpin pin = new Pushpin();
+            pin.Location = pinLocation;
+
+            Map.Children.Add(pin);
+            MapLayer maplayer = new MapLayer();
+         
+            Map.Children.Add(maplayer);
+          
+
+        }
+
     }
 }

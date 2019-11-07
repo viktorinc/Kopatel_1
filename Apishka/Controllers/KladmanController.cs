@@ -21,9 +21,18 @@ namespace Kopatel.Controllers
         }
 
         [HttpGet("kladmans")]
-        public IEnumerable<User> Get()
+        public IEnumerable<KladmanViewModel> Get()
         {
-            return _context.Users.ToList();
+            return _context.Kladmans.Select(t =>
+            new KladmanViewModel()
+            {
+                Id = t.Id,
+                IsAlive = t.IsAlive,
+                Login = t.Login,
+                Password=t.Password,
+                Rating=t.Rating
+
+            });
         }
 
         [HttpPost("loginKladman")]

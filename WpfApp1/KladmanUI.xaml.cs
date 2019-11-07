@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,11 +24,43 @@ namespace WpfApp1
     public partial class KladmanUI : Window
     {
         public KladmanViewModel usser { get; set; }
-        public List<ProductViewModel> list = new List<ProductViewModel>();
-        public KladmanUI()
+        public List<OrderViewModel> list = new List<OrderViewModel>();
+        public KladmanUI( KladmanViewModel model)
         {
 
             InitializeComponent();
+            Startup(model);
+
+        }
+
+        private void Startup(KladmanViewModel model)
+        {
+            List<OrderViewModel> tmps = new List<OrderViewModel>() { };
+            HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:49576/api/order/orders/");
+            request.Method = "GET";
+            request.ContentType = "application/json";
+
+            WebResponse response = request.GetResponse();
+            using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+            {
+                string json = reader.ReadToEnd();
+                var orders = JsonConvert.DeserializeObject<List<OrderViewModel>>(json);
+                tmps = orders;
+
+            }
+            foreach (var el in tmps)
+            {
+                if (el.KladmenId == model.Id)
+                {
+                    list.Add(el);
+                }
+            }
+            Orderslist.ItemsSource = list;
+        }
+
+        private void Button_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

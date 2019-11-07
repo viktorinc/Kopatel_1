@@ -51,5 +51,6 @@ namespace WpfApp1
             }
             Orders.ItemsSource = orders;
         }
+
     }
 }

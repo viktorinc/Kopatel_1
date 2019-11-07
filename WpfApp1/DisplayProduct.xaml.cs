@@ -59,13 +59,7 @@ namespace WpfApp1
             request.ContentType = "application/json";
             using (StreamWriter stream = new StreamWriter(request.GetRequestStream()))
             {
-                order = new OrderViewModel()
-                {
-                   KladmenId = order.KladmenId,
-                   ProductId=order.ProductId,
-                   UserId=order.ProductId,
-                   Location = order.Location
-                };
+              
                 string json = JsonConvert.SerializeObject(order);
                 stream.Write(json);
 

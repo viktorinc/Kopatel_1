@@ -67,10 +67,10 @@ namespace Kopatel.Controllers
         [HttpPost("loginUser")]
         public IActionResult CheckLogin([FromBody]UserViewModel model)
         {
-            var boss = _context.Users.FirstOrDefault(t => t.Login == model.Login && t.Password == model.Password );
-            if (boss != null)
+            var user = _context.Users.FirstOrDefault(t => t.Login == model.Login && t.Password == model.Password );
+            if (user != null)
             {
-                return Ok(boss.Id.ToString());
+                return Ok(user.Id.ToString());
             }
             else
             {
