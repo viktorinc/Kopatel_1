@@ -17,7 +17,7 @@
         </ListView>
         <Button FontWeight="Bold" Background="Black" Foreground="White" FontSize="20" Content="Make Order" Margin="10,356,532,10"/>
         <Button Content="My Orders" Background="Black" Foreground="White" FontSize="20" FontWeight="Bold" Margin="579,6,67,366" Click="Button_Click"/>
-        <m:Map x:Name="Map" Mode="AerialWithLabels" CredentialsProvider="7ZgcAMFMB862ztR0acCA~pLQ8hVbwNHPWR9hpWMU5BA~An3T7R4EpvMFJ0ei9a3S5a1_5DibW6Qz6sTrgZHWC2VDIa0x_41jjZpUMla4IGw4" ZoomLevel="13" Center="50.620285, 26.244479"  Margin="290,123,31,17" MouseDoubleClick="Map_MouseDoubleClick"/>
+        <m:Map x:Name="Map" Mode="AerialWithLabels" CredentialsProvider="7ZgcAMFMB862ztR0acCA~pLQ8hVbwNHPWR9hpWMU5BA~An3T7R4EpvMFJ0ei9a3S5a1_5DibW6Qz6sTrgZHWC2VDIa0x_41jjZpUMla4IGw4" ZoomLevel="13" Center="50.620285, 26.244479"  Margin="285,118,0,0" MouseDoubleClick="Map_MouseDoubleClick"/>
         <Label Name="cordx" Margin="436,76,202,302" RenderTransformOrigin="0.5,0.5">
      
         </Label>

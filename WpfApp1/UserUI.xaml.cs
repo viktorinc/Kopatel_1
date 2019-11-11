@@ -82,9 +82,10 @@ namespace WpfApp1
 
         private void Map_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            e.Handled = true;
 
+            
             Point mousePosition = e.GetPosition(this);
+            
             Location pinLocation = Map.ViewportPointToLocation(mousePosition);
 
             Pushpin pin = new Pushpin();

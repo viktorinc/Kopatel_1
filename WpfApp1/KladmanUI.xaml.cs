@@ -25,6 +25,7 @@ namespace WpfApp1
     {
         public KladmanViewModel usser { get; set; }
         public List<OrderViewModel> list = new List<OrderViewModel>();
+        public string Location;
         public KladmanUI( KladmanViewModel model)
         {
 
@@ -59,6 +60,11 @@ namespace WpfApp1
         }
 
         private void Button_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         }
