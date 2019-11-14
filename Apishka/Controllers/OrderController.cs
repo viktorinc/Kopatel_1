@@ -27,10 +27,13 @@ namespace Kopatel.Controllers
             return _context.Orders.Select(t =>
             new OrderViewModel()
             {
+                
                 UserId = t.UserId,
                 KladmenId = t.KladmenId,
                 ProductId = t.ProductId,
-                Location = t.Location
+                Location = t.Location,
+                Id=t.Id
+                
             }
             
             );
@@ -59,7 +62,8 @@ namespace Kopatel.Controllers
                    UserId=model.UserId,
                    Location=model.Location,
                    ProductId=model.ProductId,
-                   KladmenId =model.KladmenId
+                   KladmenId =model.KladmenId,
+                   Id=model.Id
                 };
 
                 _context.Orders.Add(client);
@@ -84,6 +88,8 @@ namespace Kopatel.Controllers
                 Kladman.Location = model.Location;
                 Kladman.UserId = model.UserId;
                 Kladman.ProductId = model.ProductId;
+                Kladman.Id = model.Id;
+
 
 
                 _context.SaveChanges();

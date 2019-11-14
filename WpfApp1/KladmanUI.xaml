@@ -8,9 +8,13 @@
         mc:Ignorable="d"
         Title="KladmanUI" Height="450" Background="Black" Width="800">
     <Grid>
-        <ListView FontSize="20" Name="Orderslist" Margin="212,10,107,98" Foreground="White" Background="Black" RenderTransformOrigin="0.5,0.5">
+        <ListView MouseDoubleClick="Orderslist_MouseDoubleClick" FontSize="20" Name="Orderslist" Margin="212,10,107,98" Foreground="White" Background="Black" RenderTransformOrigin="0.5,0.5">
    
         </ListView>
         <Button MouseDoubleClick="Button_MouseDoubleClick" Content="Open Map" FontSize="20" FontWeight="Bold" Foreground="White" Background="Black" Margin="0,0,620,358" Click="Button_Click"></Button>
+        <Button Margin="730,10,10,368" Click="Button_Click_2">
+            <Image Source="Pics/321.png"/>
+        </Button>
+
     </Grid>
 </Window>

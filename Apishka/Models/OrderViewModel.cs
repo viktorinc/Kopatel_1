@@ -7,6 +7,7 @@ namespace Apishka.Models
 {
     public class OrderViewModel
     {
+        public int Id { get; set; }
         public string Location { get; set; }
 
         public int KladmenId { get; set; }

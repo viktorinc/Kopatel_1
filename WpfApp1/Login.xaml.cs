@@ -45,7 +45,7 @@ namespace WpfApp1
                 {
                     if (newbox.IsChecked == true)
                     {
-                        HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:49576/api/user/add/");
+                        HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:53306/api/user/add/");
                         request.Method = "POST";
                         request.ContentType = "application/json";
                         using (StreamWriter stream = new StreamWriter(request.GetRequestStream()))
@@ -60,10 +60,10 @@ namespace WpfApp1
 
                             
                         }
-                        WebResponse response = request.GetResponse();
-                        MainWindow mw = new MainWindow();
+                        WebResponse response = request.GetResponse(); 
                         UserIdFix();
-                        mw.user = user;
+
+                        MainWindow mw = new MainWindow(user);
                         mw.Show();
                         this.Close();
 
@@ -71,7 +71,7 @@ namespace WpfApp1
                     else
 
                     {
-                        HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:49576/api/user/loginUser/");
+                        HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:53306/api/user/loginUser/");
                         request.Method = "Post";
                         request.ContentType = "application/json";
                         using (StreamWriter writer = new StreamWriter(request.GetRequestStream()))
@@ -81,10 +81,10 @@ namespace WpfApp1
                             
                             writer.Write(json);
                         }
-                        WebResponse respons = request.GetResponse();
-                        MainWindow mw = new MainWindow();
+                        WebResponse respons = request.GetResponse();       
                         UserIdFix();
-                        mw.user = user;
+
+                        MainWindow mw = new MainWindow(user);
                         mw.Show();
                         this.Close();                                
                         
@@ -106,7 +106,7 @@ namespace WpfApp1
             {
                 if (newbox.IsChecked == true)
                 {
-                    HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:49576/api/kladman/add/");
+                    HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:53306/api/kladman/add/");
                     request.Method = "POST";
                     request.ContentType = "application/json";
                     using (StreamWriter stream = new StreamWriter(request.GetRequestStream()))
@@ -133,7 +133,7 @@ namespace WpfApp1
                 {
                     try
                     {
-                        HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:49576/api/kladman/loginKladman/");
+                        HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:53306/api/kladman/loginKladman/");
                         request.Method = "POST";
                         request.ContentType = "application/json";
                         using (StreamWriter writer = new StreamWriter(request.GetRequestStream()))
@@ -170,7 +170,7 @@ namespace WpfApp1
         public void KladmanIdFix()
         {
             List<KladmanViewModel> tmps = new List<KladmanViewModel>() { };
-            HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:49576/api/kladman/kladmans/");
+            HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:53306/api/kladman/kladmans/");
             request.Method = "GET";
             request.ContentType = "application/json";
             WebResponse response = request.GetResponse();
@@ -194,7 +194,7 @@ namespace WpfApp1
         public void UserIdFix()
         {
             List<UserViewModel> tmps = new List<UserViewModel>() { };
-            HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:49576/api/user/users/");
+            HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:53306/api/user/users/");
             request.Method = "GET";
             request.ContentType = "application/json";
             WebResponse response = request.GetResponse();

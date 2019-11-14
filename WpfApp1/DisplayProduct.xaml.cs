@@ -34,7 +34,7 @@ namespace WpfApp1
 
             BitmapImage myBitmapImage = new BitmapImage();
             myBitmapImage.BeginInit();
-            myBitmapImage.UriSource = new Uri($@"C:\Users\kubrak\Source\Repos\Kopatel_1\WpfApp1\Pics\{model.Picture}");
+            myBitmapImage.UriSource = new Uri($@"C:\Users\Admin\Desktop\Step\Kopatel_1-master\WpfApp1\Pics\{model.Picture}");
             myBitmapImage.EndInit();
 
             Desc.Text = model.ForDisplay();
@@ -42,10 +42,7 @@ namespace WpfApp1
             string picturepath = model.Picture;
             
         }
-        private void startup()
-        {
-            
-        }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -54,7 +51,7 @@ namespace WpfApp1
             order.ProductId = product.Id;
             order.KladmenId = 1;
             order.Location = "Waiting for Kladman";
-            HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:49576/api/order/add/");
+            HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:53306/api/order/add/");
             request.Method = "POST";
             request.ContentType = "application/json";
             using (StreamWriter stream = new StreamWriter(request.GetRequestStream()))

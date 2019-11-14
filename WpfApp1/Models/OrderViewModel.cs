@@ -10,6 +10,8 @@ namespace WpfApp1.Models
 {
     public class OrderViewModel
     {
+        public int Id { get; set; }
+
         public string Location { get; set; }
 
         public int KladmenId { get; set; }
@@ -22,7 +24,7 @@ namespace WpfApp1.Models
         {
             ProductViewModel product = new ProductViewModel();
             List<ProductViewModel> tmps = new List<ProductViewModel>() { };
-            HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:49576/api/product/products/");
+            HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:53306/api/product/products/");
             request.Method = "GET";
             request.ContentType = "application/json";
 

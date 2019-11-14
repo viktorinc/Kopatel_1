@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApp1.Models;
 
 namespace WpfApp1
 {
@@ -21,11 +22,18 @@ namespace WpfApp1
     public partial class Test : Window
     {
         Pushpin pin;
+        string location;
         public Test()
         {
             InitializeComponent();
         }
-        private void Map_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        public string GetLocation()
+        {
+            return pin.Location.ToString();
+        }
+
+
+        public void Map_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
 
             Point mousePosition = e.GetPosition(this);
@@ -39,13 +47,11 @@ namespace WpfApp1
 
             Map.Children.Add(maplayer);
 
+            
+
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {

@@ -1,0 +1,14 @@
+﻿<Window x:Class="WpfApp1.TestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+        mc:Ignorable="d"
+        Title="TestWindow" Height="450" Width="800">
+    <Grid>
+        <m:Map x:Name="Map" Mode="AerialWithLabels" CredentialsProvider="7ZgcAMFMB862ztR0acCA~pLQ8hVbwNHPWR9hpWMU5BA~An3T7R4EpvMFJ0ei9a3S5a1_5DibW6Qz6sTrgZHWC2VDIa0x_41jjZpUMla4IGw4" ZoomLevel="13" Center="50.620285, 26.244479" />
+
+    </Grid>
+</Window>

@@ -23,14 +23,19 @@ namespace WpfApp1
     /// </summary>
     public partial class OrderUi : Window
     {
+
         UserViewModel user { get; set; }
+
+
         List<OrderViewModel> orders = new List<OrderViewModel>() { };
+
+
         public OrderUi(UserViewModel model)
         {
             user = model;
             InitializeComponent();
             List<OrderViewModel> tmps = new List<OrderViewModel>() { };
-            HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:49576/api/order/orders/");
+            HttpWebRequest request = HttpWebRequest.CreateHttp("http://localhost:53306/api/order/orders/");
             request.Method = "GET";
             request.ContentType = "application/json";
 

@@ -59,6 +59,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="TestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserUI.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -81,6 +85,9 @@
     </Compile>
     <Compile Include="Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TestWindow.xaml.cs">
+      <DependentUpon>TestWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserUI.xaml.cs">
       <DependentUpon>UserUI.xaml</DependentUpon>
@@ -169,6 +176,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pics\DisplayBack.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pics\Refresh.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
